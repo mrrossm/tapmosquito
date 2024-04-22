@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2l1fyrtrtugj"]
+
+[ext_resource type="Texture2D" uid="uid://bxaxl14g43gtr" path="res://_art/mosquito.png" id="1_8goco"]
+[ext_resource type="Script" path="res://_script/enemy.gd" id="1_q3yeo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s65re"]
+size = Vector2(116, 134)
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_q3yeo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8goco")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_s65re")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
