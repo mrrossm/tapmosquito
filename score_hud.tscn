@@ -25,6 +25,7 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 40
 text = "Score:"
 
 [node name="Panel2" type="Panel" parent="GridContainer"]
@@ -34,4 +35,5 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 40
 text = "Life:"

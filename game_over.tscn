@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlv304rp70nii"]
+[gd_scene load_steps=4 format=3 uid="uid://dlv304rp70nii"]
 
 [ext_resource type="Script" path="res://_script/quit.gd" id="1_f7hk1"]
+[ext_resource type="Script" path="res://_script/restart.gd" id="1_lmeol"]
+[ext_resource type="Script" path="res://_script/menu.gd" id="2_70m4h"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -27,6 +29,7 @@ offset_right = 949.0
 offset_bottom = 387.0
 theme_override_font_sizes/font_size = 50
 text = "Restart Game"
+script = ExtResource("1_lmeol")
 
 [node name="menu" type="Button" parent="."]
 layout_mode = 0
@@ -36,6 +39,7 @@ offset_right = 949.0
 offset_bottom = 511.0
 theme_override_font_sizes/font_size = 50
 text = "Quit to Menu"
+script = ExtResource("2_70m4h")
 
 [node name="quit" type="Button" parent="."]
 layout_mode = 0
@@ -46,3 +50,7 @@ offset_bottom = 631.0
 theme_override_font_sizes/font_size = 50
 text = "Quit Game"
 script = ExtResource("1_f7hk1")
+
+[connection signal="pressed" from="restart" to="restart" method="_on_pressed"]
+[connection signal="pressed" from="menu" to="menu" method="_on_pressed"]
+[connection signal="pressed" from="quit" to="quit" method="_on_pressed"]

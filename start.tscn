@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://obxqi1l81rpn"]
+
+[ext_resource type="PackedScene" uid="uid://ch48evakmhgyv" path="res://background.tscn" id="1_kn0bn"]
+[ext_resource type="Texture2D" uid="uid://bxaxl14g43gtr" path="res://_art/mosquito.png" id="2_10cgd"]
+[ext_resource type="Script" path="res://_script/PlayButton.gd" id="3_d6swy"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" parent="." instance=ExtResource("1_kn0bn")]
+layout_mode = 0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 198.0
+offset_right = 1282.0
+offset_bottom = 335.0
+theme_override_font_sizes/font_size = 100
+text = "Tap Mosquito"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 663.0
+offset_right = 761.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 30
+text = "my magnum opus - Tap Mosquito game dev"
+
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 356.0
+offset_right = 714.0
+offset_bottom = 516.0
+texture_normal = ExtResource("2_10cgd")
+script = ExtResource("3_d6swy")
+
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_pressed"]
