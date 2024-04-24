@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://obxqi1l81rpn"]
+[gd_scene load_steps=6 format=3 uid="uid://obxqi1l81rpn"]
 
 [ext_resource type="PackedScene" uid="uid://ch48evakmhgyv" path="res://background.tscn" id="1_kn0bn"]
 [ext_resource type="Texture2D" uid="uid://bxaxl14g43gtr" path="res://_art/mosquito.png" id="2_10cgd"]
 [ext_resource type="Script" path="res://_script/PlayButton.gd" id="3_d6swy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qdwnd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4i6ha"]
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -16,32 +20,71 @@ grow_vertical = 2
 layout_mode = 0
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 198.0
-offset_right = 1282.0
-offset_bottom = 335.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qdwnd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.0
+offset_top = -150.5
+offset_right = 329.0
+offset_bottom = 150.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
 text = "Tap Mosquito"
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="."]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 663.0
-offset_right = 761.0
-offset_bottom = 720.0
-theme_override_font_sizes/font_size = 30
-text = "my magnum opus - Tap Mosquito game dev"
-
-[node name="PlayButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 554.0
-offset_top = 356.0
-offset_right = 714.0
-offset_bottom = 516.0
+[node name="PlayButton" type="TextureButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("2_10cgd")
 script = ExtResource("3_d6swy")
 
-[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_pressed"]
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -91.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4i6ha")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Description" type="Label" parent="Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 30
+text = "my magnum opus - Tap Mosquito game dev"
+
+[node name="Description2" type="Label" parent="Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 30
+text = "2024"
+
+[connection signal="pressed" from="Panel/VBoxContainer/PlayButton" to="Panel/VBoxContainer/PlayButton" method="_on_pressed"]

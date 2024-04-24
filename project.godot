@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Tap Mosquito"
-run/main_scene="res://game.tscn"
+run/main_scene="res://start.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://_art/icon.svg"
+
+[autoload]
+
+Globals="*res://_script/globals.gd"
 
 [display]
 

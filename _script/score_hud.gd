@@ -24,6 +24,8 @@ func _on_spawner_point_up():
 # Decrease life :todo switch to game over screen
 func _on_spawner_life_down():
 	initial_life -= 1
-	# if life turns 0, turn to game over scene.
-	if initial_life == 0:
+	# if life turns 0, turn to game over scene. also transfer the globals value score
+	if initial_life <= 0:
+		var globals = get_node("/root/Globals")
+		globals.score = initial_score
 		get_tree().change_scene_to_file("res://game_over.tscn")

@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlv304rp70nii"]
+[gd_scene load_steps=7 format=3 uid="uid://dlv304rp70nii"]
 
+[ext_resource type="Script" path="res://_script/game_over.gd" id="1_bsnv1"]
 [ext_resource type="Script" path="res://_script/quit.gd" id="1_f7hk1"]
 [ext_resource type="Script" path="res://_script/restart.gd" id="1_lmeol"]
+[ext_resource type="PackedScene" uid="uid://ch48evakmhgyv" path="res://background.tscn" id="1_q0vbn"]
 [ext_resource type="Script" path="res://_script/menu.gd" id="2_70m4h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qjohp"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -11,46 +15,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bsnv1")
 
-[node name="Label" type="Label" parent="."]
+[node name="Background" parent="." instance=ExtResource("1_q0vbn")]
 layout_mode = 0
-offset_left = 382.0
-offset_top = 115.0
-offset_right = 927.0
-offset_bottom = 252.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qjohp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOver" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Game Over"
 
-[node name="restart" type="Button" parent="."]
-layout_mode = 0
-offset_left = 385.0
-offset_top = 294.0
-offset_right = 949.0
-offset_bottom = 387.0
+[node name="restart" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Restart Game"
 script = ExtResource("1_lmeol")
 
-[node name="menu" type="Button" parent="."]
-layout_mode = 0
-offset_left = 385.0
-offset_top = 418.0
-offset_right = 949.0
-offset_bottom = 511.0
+[node name="menu" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit to Menu"
 script = ExtResource("2_70m4h")
 
-[node name="quit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 385.0
-offset_top = 538.0
-offset_right = 949.0
-offset_bottom = 631.0
+[node name="quit" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit Game"
 script = ExtResource("1_f7hk1")
 
-[connection signal="pressed" from="restart" to="restart" method="_on_pressed"]
-[connection signal="pressed" from="menu" to="menu" method="_on_pressed"]
-[connection signal="pressed" from="quit" to="quit" method="_on_pressed"]
+[node name="Score" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+text = "Tapped:"
+
+[connection signal="pressed" from="Panel/VBoxContainer/restart" to="Panel/VBoxContainer/restart" method="_on_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/menu" to="Panel/VBoxContainer/menu" method="_on_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/quit" to="Panel/VBoxContainer/quit" method="_on_pressed"]
