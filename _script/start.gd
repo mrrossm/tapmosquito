@@ -30,6 +30,9 @@ func _ready():
 	
 		
 func _process(delta):
+	# Listen for ESC to quit game
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
 	# Listen for pressing the key "r" to administer resetting if reaching the duration
 	if Input.is_key_pressed(KEY_R):
 		reset_start += 1 * delta

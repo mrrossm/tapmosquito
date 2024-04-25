@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="Tap Mosquito"
+config/description="tap mosquito yeah"
 run/main_scene="res://start.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://_art/icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://_art/bootsplash.png"
+config/icon="res://_art/icon.png"
 
 [autoload]
 
@@ -29,3 +32,4 @@ window/stretch/mode="viewport"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
