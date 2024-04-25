@@ -126,15 +126,13 @@ texture = ExtResource("1_8goco")
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_s65re")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q5mew")
 animation = &"minding_own_business"
-frame = 13
-frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

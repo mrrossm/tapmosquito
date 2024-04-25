@@ -6,7 +6,7 @@ signal not_tapped
 @onready var anim = $AnimatedSprite2D
 
 func _process(delta):
-	anim.play("minding_own_business")
+	anim.play("fight")
 
 func _on_timer_timeout():
 	# if the player didn't tap mosquito, emit life losing signal

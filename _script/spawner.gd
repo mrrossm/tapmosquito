@@ -1,14 +1,22 @@
 extends Node2D
 
-var enemy_scene = preload("res://enemy.tscn")
+var normal_enemy = preload("res://enemy.tscn")
+var hard_enemy = preload("res://enemy_hard.tscn")
+var chosen_level_of_enemy = normal_enemy
 
 @onready var tapped_sfx = $Tapped
+# Check if the player's difficulty mode
+@onready var globals = get_node("/root/Globals")
 
 # Signal indicates scoring
 signal point_up
 # Signal indicates losing life
 signal life_down
-	
+
+func _process(delta):
+	if globals.is_easy == false:
+		chosen_level_of_enemy = hard_enemy
+
 func _on_timer_timeout():
 	# Get spawn area reference
 	var spawn_area = $SpawnArea
@@ -25,8 +33,9 @@ func _on_timer_timeout():
 	#enemy.position = Vector2(xPosition, yPosition)
 	### END OF COMMENT
 	
+	
+	var enemy = chosen_level_of_enemy.instantiate()
 	# Using the new spawn mechanism
-	var enemy = enemy_scene.instantiate()
 	enemy.position = spawn_area_position
 	add_child(enemy)
 	# Connect the enemy's is_tapped signal to a function in the spawner

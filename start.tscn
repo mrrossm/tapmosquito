@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://obxqi1l81rpn"]
+[gd_scene load_steps=8 format=3 uid="uid://obxqi1l81rpn"]
 
 [ext_resource type="PackedScene" uid="uid://ch48evakmhgyv" path="res://background.tscn" id="1_kn0bn"]
 [ext_resource type="Texture2D" uid="uid://bxaxl14g43gtr" path="res://_art/mosquito.png" id="2_10cgd"]
 [ext_resource type="Script" path="res://_script/PlayButton.gd" id="3_d6swy"]
+[ext_resource type="Texture2D" uid="uid://crg68dx2jhlb" path="res://_art/evil_mosquito.png" id="4_1wmtn"]
+[ext_resource type="Script" path="res://_script/PlayButtonHard.gd" id="5_582iv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qdwnd"]
 
@@ -49,12 +51,23 @@ theme_override_font_sizes/font_size = 100
 text = "Tap Mosquito"
 horizontal_alignment = 1
 
-[node name="PlayButton" type="TextureButton" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PlayButton" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_10cgd")
 script = ExtResource("3_d6swy")
+
+[node name="PlayButtonHard" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_1wmtn")
+script = ExtResource("5_582iv")
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
@@ -83,4 +96,5 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 45
 text = "magnum opus - Tap Mosquito game dev, 2024"
 
-[connection signal="pressed" from="Panel/VBoxContainer/PlayButton" to="Panel/VBoxContainer/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/PlayButton" to="Panel/VBoxContainer/HBoxContainer/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/PlayButtonHard" to="Panel/VBoxContainer/HBoxContainer/PlayButtonHard" method="_on_pressed"]
