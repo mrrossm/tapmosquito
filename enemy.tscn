@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2l1fyrtrtugj"]
+[gd_scene load_steps=4 format=3 uid="uid://d2l1fyrtrtugj"]
 
 [ext_resource type="Texture2D" uid="uid://bxaxl14g43gtr" path="res://_art/mosquito.png" id="1_8goco"]
 [ext_resource type="Script" path="res://_script/enemy.gd" id="1_q3yeo"]
-[ext_resource type="AudioStream" uid="uid://l8r4bpvx6rrc" path="res://_art/audio/tapped/tap(1).wav" id="3_yc8wk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s65re"]
 size = Vector2(116, 134)
@@ -22,9 +21,6 @@ shape = SubResource("RectangleShape2D_s65re")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
-
-[node name="TappedSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_yc8wk")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

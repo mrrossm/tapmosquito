@@ -2,6 +2,8 @@ extends Area2D
 
 var enemy_scene = preload("res://enemy.tscn")
 
+@onready var tapped_sfx = $Tapped
+
 # Signal indicates scoring
 signal point_up
 # Signal indicates losing life
@@ -23,6 +25,8 @@ func _on_timer_timeout():
 	
 func _on_enemy_is_tapped():
 	emit_signal("point_up")
+	# Play sound effect
+	tapped_sfx.play()
 
 func _on_enemy_not_tapped():
 	emit_signal("life_down")

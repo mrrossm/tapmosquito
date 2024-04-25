@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkhk31l62nqoy"]
+[gd_scene load_steps=4 format=3 uid="uid://dkhk31l62nqoy"]
 
 [ext_resource type="Script" path="res://_script/spawner.gd" id="1_wn2lb"]
+[ext_resource type="AudioStream" uid="uid://l8r4bpvx6rrc" path="res://_art/audio/tapped/tap(1).wav" id="2_q5bnh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2oc2"]
 size = Vector2(1105, 585)
@@ -15,5 +16,9 @@ shape = SubResource("RectangleShape2D_o2oc2")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="Tapped" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q5bnh")
+volume_db = 3.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
