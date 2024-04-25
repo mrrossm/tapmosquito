@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://obxqi1l81rpn"]
+[gd_scene load_steps=9 format=3 uid="uid://obxqi1l81rpn"]
 
 [ext_resource type="PackedScene" uid="uid://ch48evakmhgyv" path="res://background.tscn" id="1_kn0bn"]
+[ext_resource type="Script" path="res://_script/start.gd" id="1_rg7ld"]
 [ext_resource type="Texture2D" uid="uid://bxaxl14g43gtr" path="res://_art/mosquito.png" id="2_10cgd"]
 [ext_resource type="Script" path="res://_script/PlayButton.gd" id="3_d6swy"]
 [ext_resource type="Texture2D" uid="uid://crg68dx2jhlb" path="res://_art/evil_mosquito.png" id="4_1wmtn"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rg7ld")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -95,6 +97,51 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 45
 text = "magnum opus - Tap Mosquito game dev, 2024"
+
+[node name="TestBadges" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 197.0
+
+[node name="c1" type="ColorRect" parent="TestBadges"]
+visible = false
+layout_mode = 0
+offset_left = 94.0
+offset_top = 33.0
+offset_right = 222.0
+offset_bottom = 167.0
+
+[node name="c2" type="ColorRect" parent="TestBadges"]
+visible = false
+layout_mode = 0
+offset_left = 296.0
+offset_top = 33.0
+offset_right = 424.0
+offset_bottom = 167.0
+
+[node name="c3" type="ColorRect" parent="TestBadges"]
+visible = false
+layout_mode = 0
+offset_left = 502.0
+offset_top = 42.0
+offset_right = 630.0
+offset_bottom = 176.0
+
+[node name="c4" type="ColorRect" parent="TestBadges"]
+visible = false
+layout_mode = 0
+offset_left = 665.0
+offset_top = 42.0
+offset_right = 793.0
+offset_bottom = 176.0
+
+[node name="c5" type="ColorRect" parent="TestBadges"]
+visible = false
+layout_mode = 0
+offset_left = 837.0
+offset_top = 42.0
+offset_right = 965.0
+offset_bottom = 176.0
 
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/PlayButton" to="Panel/VBoxContainer/HBoxContainer/PlayButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/PlayButtonHard" to="Panel/VBoxContainer/HBoxContainer/PlayButtonHard" method="_on_pressed"]
