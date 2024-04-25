@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlv304rp70nii"]
+[gd_scene load_steps=8 format=3 uid="uid://dlv304rp70nii"]
 
 [ext_resource type="Script" path="res://_script/game_over.gd" id="1_bsnv1"]
 [ext_resource type="Script" path="res://_script/quit.gd" id="1_f7hk1"]
 [ext_resource type="Script" path="res://_script/restart.gd" id="1_lmeol"]
 [ext_resource type="PackedScene" uid="uid://ch48evakmhgyv" path="res://background.tscn" id="1_q0vbn"]
 [ext_resource type="Script" path="res://_script/menu.gd" id="2_70m4h"]
+[ext_resource type="AudioStream" uid="uid://bseuv5j6ti4eb" path="res://_art/audio/gameover.wav" id="6_6kfns"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qjohp"]
 
@@ -69,6 +70,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 60
 text = "Tapped:"
+
+[node name="BadMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6kfns")
+volume_db = 5.0
+autoplay = true
 
 [connection signal="pressed" from="Panel/VBoxContainer/restart" to="Panel/VBoxContainer/restart" method="_on_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/menu" to="Panel/VBoxContainer/menu" method="_on_pressed"]

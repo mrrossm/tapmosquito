@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6iuw6ljsvm8n"]
+[gd_scene load_steps=6 format=3 uid="uid://c6iuw6ljsvm8n"]
 
+[ext_resource type="Script" path="res://_script/game.gd" id="1_rjt82"]
 [ext_resource type="PackedScene" uid="uid://ch48evakmhgyv" path="res://background.tscn" id="1_y6ell"]
 [ext_resource type="PackedScene" uid="uid://c45slhkl270s4" path="res://score_hud.tscn" id="2_dhym3"]
 [ext_resource type="PackedScene" uid="uid://dkhk31l62nqoy" path="res://spawner.tscn" id="3_1xcuw"]
+[ext_resource type="AudioStream" uid="uid://dafwywl63lx4s" path="res://_art/audio/buzz.wav" id="5_ocvn8"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_rjt82")
 
 [node name="Background" parent="." instance=ExtResource("1_y6ell")]
 mouse_filter = 2
@@ -13,6 +16,9 @@ mouse_filter = 2
 mouse_filter = 2
 
 [node name="Spawner" parent="." instance=ExtResource("3_1xcuw")]
+
+[node name="PlayMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ocvn8")
 
 [connection signal="life_down" from="Spawner" to="ScoreHUD" method="_on_spawner_life_down"]
 [connection signal="point_up" from="Spawner" to="ScoreHUD" method="_on_spawner_point_up"]
