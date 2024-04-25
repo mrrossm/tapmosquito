@@ -5,15 +5,15 @@ var initial_life: int = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var score_label = $GridContainer/Panel/Score
-	var life_label = $GridContainer/Panel2/Life
+	var score_label = $CanvasLayer/VBoxContainer/Score
+	var life_label = $CanvasLayer/VBoxContainer/Life
 	score_label.text = "Score: " + str(initial_score)
 	life_label.text = "Life: " + str(initial_life)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var score_label = $GridContainer/Panel/Score
-	var life_label = $GridContainer/Panel2/Life
+	var score_label = $CanvasLayer/VBoxContainer/Score
+	var life_label = $CanvasLayer/VBoxContainer/Life
 	score_label.text = "Score: " + str(initial_score)
 	life_label.text = "Life: " + str(initial_life)
 
