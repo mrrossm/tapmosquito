@@ -3,6 +3,11 @@ extends Node2D
 signal is_tapped
 signal not_tapped
 
+@onready var anim = $AnimatedSprite2D
+
+func _process(delta):
+	anim.play()
+
 func _on_timer_timeout():
 	# if the player didn't tap mosquito, emit life losing signal
 	emit_signal("not_tapped")

@@ -28,8 +28,6 @@ func _on_timer_timeout():
 	# Using the new spawn mechanism
 	var enemy = enemy_scene.instantiate()
 	enemy.position = spawn_area_position
-	#enemy.position = Vector2(534, 434)
-	print(spawn_area.size.y)
 	add_child(enemy)
 	# Connect the enemy's is_tapped signal to a function in the spawner
 	enemy.is_tapped.connect(_on_enemy_is_tapped)
