@@ -9,6 +9,10 @@ var wow_really = false
 var game_completed = false
 var badges = [easy_peasy, woah, woah_bandicoot, wow_really, game_completed]
 
+# Reset button duration
+var reset_duration = 4
+var reset_start = 0
+
 func _ready():
 	# Script to show the badges
 	load_data()
@@ -23,6 +27,17 @@ func _ready():
 		$TestBadges/c4.visible = true
 	if badges[4] == true:
 		$TestBadges/c5.visible = true
+	
+		
+func _process(delta):
+	# Listen for pressing the key "r" to administer resetting if reaching the duration
+	if Input.is_key_pressed(KEY_R):
+		reset_start += 1 * delta
+		if reset_start >= reset_duration:
+			reset_data()
+			get_tree().reload_current_scene()
+	else:
+		reset_start = 0
 
 func load_data():
 	if FileAccess.file_exists(save_path):
@@ -39,3 +54,9 @@ func load_data():
 		woah_bandicoot = false
 		wow_really = false
 		game_completed = false
+
+func reset_data():
+	if FileAccess.file_exists(save_path):
+		DirAccess.remove_absolute(save_path)
+	else:
+		print("no save file to reset...")

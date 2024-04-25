@@ -28,8 +28,8 @@ func _process(delta):
 	var is_easy = globals.is_easy
 	
 	#For debugging purposes
-	is_easy = false
-	score_now = 35
+	#is_easy = false
+	#score_now = 35
 	
 	# Hard analysis
 	if !is_easy and score_now >= 30:

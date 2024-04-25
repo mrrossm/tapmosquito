@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://obxqi1l81rpn"]
+[gd_scene load_steps=21 format=3 uid="uid://obxqi1l81rpn"]
 
 [ext_resource type="PackedScene" uid="uid://ch48evakmhgyv" path="res://background.tscn" id="1_kn0bn"]
 [ext_resource type="Script" path="res://_script/start.gd" id="1_rg7ld"]
@@ -6,10 +6,88 @@
 [ext_resource type="Script" path="res://_script/PlayButton.gd" id="3_d6swy"]
 [ext_resource type="Texture2D" uid="uid://crg68dx2jhlb" path="res://_art/evil_mosquito.png" id="4_1wmtn"]
 [ext_resource type="Script" path="res://_script/PlayButtonHard.gd" id="5_582iv"]
+[ext_resource type="Texture2D" uid="uid://cfbpmiv2arn8u" path="res://_art/badges.png" id="7_fr7ju"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qdwnd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4i6ha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rl5cw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkjno"]
+atlas = ExtResource("7_fr7ju")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ac57e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkjno")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hqbf"]
+atlas = ExtResource("7_fr7ju")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qv2fo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hqbf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mfa3"]
+atlas = ExtResource("7_fr7ju")
+region = Rect2(0, 160, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbkvg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mfa3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wurmd"]
+atlas = ExtResource("7_fr7ju")
+region = Rect2(160, 160, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1qym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wurmd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nih4g"]
+atlas = ExtResource("7_fr7ju")
+region = Rect2(0, 320, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4chph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nih4g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -98,50 +176,42 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 45
 text = "magnum opus - Tap Mosquito game dev, 2024"
 
+[node name="ResetDescription" type="Label" parent="Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 25
+text = "(hold r to reset progress)"
+
 [node name="TestBadges" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 197.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rl5cw")
 
-[node name="c1" type="ColorRect" parent="TestBadges"]
+[node name="c1" type="AnimatedSprite2D" parent="TestBadges"]
 visible = false
-layout_mode = 0
-offset_left = 94.0
-offset_top = 33.0
-offset_right = 222.0
-offset_bottom = 167.0
+position = Vector2(236, 103)
+sprite_frames = SubResource("SpriteFrames_ac57e")
 
-[node name="c2" type="ColorRect" parent="TestBadges"]
+[node name="c2" type="AnimatedSprite2D" parent="TestBadges"]
 visible = false
-layout_mode = 0
-offset_left = 296.0
-offset_top = 33.0
-offset_right = 424.0
-offset_bottom = 167.0
+position = Vector2(595, 100)
+sprite_frames = SubResource("SpriteFrames_qv2fo")
 
-[node name="c3" type="ColorRect" parent="TestBadges"]
+[node name="c3" type="AnimatedSprite2D" parent="TestBadges"]
 visible = false
-layout_mode = 0
-offset_left = 502.0
-offset_top = 42.0
-offset_right = 630.0
-offset_bottom = 176.0
+position = Vector2(952, 94)
+sprite_frames = SubResource("SpriteFrames_dbkvg")
 
-[node name="c4" type="ColorRect" parent="TestBadges"]
+[node name="c4" type="AnimatedSprite2D" parent="TestBadges"]
 visible = false
-layout_mode = 0
-offset_left = 665.0
-offset_top = 42.0
-offset_right = 793.0
-offset_bottom = 176.0
+position = Vector2(1321, 97)
+sprite_frames = SubResource("SpriteFrames_e1qym")
 
-[node name="c5" type="ColorRect" parent="TestBadges"]
+[node name="c5" type="AnimatedSprite2D" parent="TestBadges"]
 visible = false
-layout_mode = 0
-offset_left = 837.0
-offset_top = 42.0
-offset_right = 965.0
-offset_bottom = 176.0
+position = Vector2(1695, 94)
+sprite_frames = SubResource("SpriteFrames_4chph")
 
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/PlayButton" to="Panel/VBoxContainer/HBoxContainer/PlayButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/PlayButtonHard" to="Panel/VBoxContainer/HBoxContainer/PlayButtonHard" method="_on_pressed"]
